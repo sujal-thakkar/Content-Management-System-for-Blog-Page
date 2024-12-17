@@ -1,0 +1,83 @@
+header h1 a {
+  color: white;
+  text-decoration: underline;
+  position: relative;
+}
+
+header h1 a::after {
+  text-decoration: none;
+  content: "";
+  background: white;
+  mix-blend-mode: exclusion;
+  width: calc(100% + 20px);
+  height: 0;
+  position: absolute;
+  bottom: -4px;
+  left: -10px;
+  transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+header h1 a:hover::after {
+  text-decoration: none;
+  height: calc(100% + 8px);
+}
+
+/* view css link style (admin panel) */
+.footer a {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+
+.footer a::before,
+.footer a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  text-decoration: none;
+}
+.footer a::before {
+  background-color: #54b3d6;
+  height: 2px;
+  bottom: 0;
+  transform-origin: 100% 50%;
+  transform: scaleX(0);
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.footer a::after {
+  content: attr(data-replace);
+  height: 100%;
+  top: 0;
+  transform-origin: 100% 50%;
+  transform: translate3d(200%, 0, 0);
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+  color: #54b3d6;
+  text-decoration: none;
+}
+
+.footer a:hover::before {
+  transform-origin: 0% 50%;
+  transform: scaleX(1);
+}
+.footer a:hover::after {
+  transform: translate3d(0, 0, 0);
+  text-decoration: none;
+}
+
+.footer a span {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.footer a:hover span {
+  transform: translate3d(-200%, 0, 0);
+  text-decoration: none;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 700;
+  vertical-align: top;
+}
